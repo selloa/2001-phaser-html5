@@ -112,6 +112,12 @@ assets/processed/
 assets/refined/
 assets/batch_processed/
 
+# Unused audio assets
+assets/final/audio/03.mp3
+assets/final/audio/05.mp3
+assets/final/audio/06.mp3
+assets/final/audio/07.mp3
+
 # Generated demos (keep source demos)
 demos/final/
 
