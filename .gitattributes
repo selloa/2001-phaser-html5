@@ -1,0 +1,2 @@
+# Git LFS configuration for large binary files
+assets/final/audio/*.mp3 filter=lfs diff=lfs merge=lfs -text
