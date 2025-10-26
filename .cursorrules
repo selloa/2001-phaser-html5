@@ -1,0 +1,163 @@
+# 2001: A Space Odyssey Phaser HTML5 Game - Cursor Rules
+
+## Project Overview
+This is a Phaser 3 HTML5 game inspired by 2001: A Space Odyssey, featuring cinematic audio, visual effects, and scene transitions. The project uses Vite for development and build processes.
+
+## Code Style & Conventions
+
+### JavaScript/ES6+ Standards
+- Use ES6+ modules with `import`/`export` syntax
+- Prefer `const` and `let` over `var`
+- Use arrow functions for callbacks and short functions
+- Use template literals for string interpolation
+- Use destructuring for object/array assignments
+- Use async/await over Promises when possible
+
+### Phaser 3 Patterns
+- Extend `Phaser.Scene` for all game scenes
+- Use `super({ key: 'SceneName' })` in scene constructors
+- Implement standard Phaser lifecycle methods: `preload()`, `create()`, `update()`, `shutdown()`
+- Use `this.scene.start()` for scene transitions
+- Use `this.scene.stop()` to stop current scene
+- Implement `resize(width, height)` method for responsive design
+
+### Audio Management
+- Use the centralized `AudioManager` class for audio handling
+- Use `GlobalMusicManager` for cross-scene music management
+- Apply audio presets from `AudioPresets` for consistent sound processing
+- Always handle audio loading errors gracefully
+- Use fade effects for smooth audio transitions
+
+### Scene Structure
+```javascript
+export default class SceneName extends Phaser.Scene {
+    constructor() {
+        super({ key: 'SceneName' })
+    }
+
+    preload() {
+        // Load assets
+    }
+
+    create(data) {
+        // Initialize scene
+    }
+
+    update() {
+        // Game loop logic
+    }
+
+    shutdown() {
+        // Cleanup
+    }
+
+    resize(width, height) {
+        // Handle window resize
+    }
+}
+```
+
+### Asset Loading
+- Load assets in the `preload()` method
+- Use descriptive keys for assets (e.g., 'crescent-moon', 'title-music')
+- Handle loading errors with appropriate fallbacks
+- Use relative paths from the `assets/` directory
+
+### Error Handling
+- Use try-catch blocks for audio operations
+- Provide fallbacks for missing assets
+- Log errors with descriptive messages
+- Continue execution when non-critical errors occur
+
+### Performance
+- Use object pooling for frequently created/destroyed objects
+- Implement proper cleanup in `shutdown()` methods
+- Use Phaser's built-in tween system for animations
+- Debounce resize events to prevent excessive calls
+
+### File Organization
+- Keep scenes in `src/scenes/`
+- Keep audio management in `src/audio/`
+- Keep data/config in `src/data/`
+- Use descriptive filenames with PascalCase for classes
+
+### Comments & Documentation
+- Use JSDoc comments for public methods
+- Add inline comments for complex logic
+- Document audio presets and their purposes
+- Explain scene transition logic
+
+### Asset Workflow
+- Source assets go in `assets/source/`
+- Processed assets go in `assets/processed/`
+- Final assets go in `assets/final/`
+- Use the provided npm scripts for asset processing
+
+### Responsive Design
+- Implement `resize()` method in all scenes
+- Use `Phaser.Scale.RESIZE` mode
+- Set appropriate min/max dimensions
+- Handle aspect ratio changes gracefully
+
+### Memory Management
+- Stop audio when scenes are destroyed
+- Remove event listeners in cleanup
+- Use Phaser's built-in cleanup methods
+- Avoid memory leaks in long-running scenes
+
+## Common Patterns
+
+### Scene Transitions
+```javascript
+// Fade out and transition
+this.cameras.main.fadeOut(2000, 0, 0, 0)
+this.time.delayedCall(2000, () => {
+    this.scene.start('NextScene', data)
+})
+```
+
+### Audio with Effects
+```javascript
+// Load audio with preset
+this.audioManager.loadAudio('music-key', 'path/to/audio.mp3', {}, 'cinematic')
+
+// Play with effects
+const audio = this.audioManager.playAudio('music-key')
+```
+
+### Responsive Images
+```javascript
+// Scale image to fill screen while maintaining aspect ratio
+const scaleX = width / image.width
+const scaleY = height / image.height
+const scale = Math.max(scaleX, scaleY)
+image.setScale(scale)
+```
+
+## Development Workflow
+1. Use `npm run dev` for development
+2. Use `npm run build` for production builds
+3. Use `npm run workflow:full` for complete asset processing
+4. Test on multiple screen sizes
+5. Verify audio works across different browsers
+
+## Asset Guidelines
+- Use high-quality source assets
+- Process assets through the provided scripts
+- Optimize for web delivery
+- Maintain aspect ratios for visual consistency
+- Use appropriate audio formats (MP3 for compatibility)
+
+## Testing
+- Test scene transitions
+- Verify audio playback and effects
+- Check responsive behavior
+- Test on different browsers
+- Validate asset loading
+
+## Performance Targets
+- 60 FPS on modern devices
+- Fast scene transitions (< 3 seconds)
+- Smooth audio playback
+- Responsive to window resizing
+- Minimal memory usage

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2001 Favicon Generator</title>
+</head>
+<body>
+    <h3>2001: A Space Odyssey Favicon Generator</h3>
+    <canvas id="favicon" width="32" height="32" style="border: 1px solid #ccc; image-rendering: pixelated;"></canvas>
+    <br><br>
+    <button onclick="downloadPNG()">Download PNG Favicon</button>
+    <button onclick="downloadICO()">Download ICO Favicon</button>
+    
+    <script>
+        const canvas = document.getElementById('favicon');
+        const ctx = canvas.getContext('2d');
+        
+        // Clear canvas with white background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // Draw monolith (black rectangle)
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(12, 4, 8, 24);
+        
+        // Add stars
+        ctx.fillStyle = '#000000';
+        ctx.globalAlpha = 0.8;
+        
+        // Star positions
+        const stars = [
+            {x: 6, y: 8, size: 1},
+            {x: 26, y: 12, size: 1},
+            {x: 8, y: 20, size: 1},
+            {x: 24, y: 24, size: 1},
+            {x: 4, y: 28, size: 1}
+        ];
+        
+        stars.forEach(star => {
+            ctx.fillRect(star.x, star.y, star.size, star.size);
+        });
+        
+        // Add subtle glow to monolith
+        ctx.globalAlpha = 0.2;
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(11, 3, 10, 26);
+        
+        function downloadPNG() {
+            const link = document.createElement('a');
+            link.download = 'favicon.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadICO() {
+            // Create a smaller canvas for ICO
+            const icoCanvas = document.createElement('canvas');
+            icoCanvas.width = 16;
+            icoCanvas.height = 16;
+            const icoCtx = icoCanvas.getContext('2d');
+            
+            // Scale down the image
+            icoCtx.drawImage(canvas, 0, 0, 16, 16);
+            
+            const link = document.createElement('a');
+            link.download = 'favicon.ico';
+            link.href = icoCanvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>
