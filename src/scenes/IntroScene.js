@@ -8,10 +8,10 @@ export default class IntroScene extends Phaser.Scene {
 
     preload() {
         // Load the 2001 logo image
-        this.load.image('2001-logo', 'assets/final/ui/2001.png')
+        this.load.image('2001-logo', '/ui/2001.png')
         
         // Load the title music for smooth transition
-        this.load.audio('title-music', 'assets/final/audio/01.mp3')
+        this.load.audio('title-music', '/audio/01.mp3')
         
         // Handle loading events
         this.load.on('filecomplete-image-2001-logo', () => {

@@ -8,10 +8,10 @@ export default class Scene004 extends BaseScene {
 
     preload() {
         // Load the scene image
-        this.load.image('spinning-wheel-station-2', 'assets/final/scenes/spinning wheel station 2.png')
+        this.load.image('spinning-wheel-station-2', '/scenes/spinning wheel station 2.png')
         
         // Load audio for this scene
-        this.load.audio('blue-danube', 'assets/final/audio/04.mp3')
+        this.load.audio('blue-danube', '/audio/04.mp3')
     }
 
     create(data) {
