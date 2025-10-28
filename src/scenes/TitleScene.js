@@ -10,10 +10,10 @@ export default class TitleScene extends BaseScene {
 
     preload() {
         // Load the crescent moon image
-        this.load.image('crescent-moon', '/ui/crescent-moon2.png')
+        this.load.image('crescent-moon', './ui/crescent-moon2.png')
         
         // Load the first audio track
-        this.load.audio('title-music', '/audio/01.mp3')
+        this.load.audio('title-music', './audio/01.mp3')
         
         // Handle audio loading events
         this.load.on('filecomplete-audio-title-music', () => {

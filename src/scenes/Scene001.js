@@ -8,7 +8,7 @@ export default class Scene001 extends BaseScene {
 
     preload() {
         // Load the scene image
-        this.load.image('bowmanpoolehal', '/scenes/bowmanpoolehal.png')
+        this.load.image('bowmanpoolehal', './scenes/bowmanpoolehal.png')
     }
 
     create(data) {

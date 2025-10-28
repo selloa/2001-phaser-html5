@@ -8,10 +8,10 @@ export default class Scene005 extends BaseScene {
 
     preload() {
         // Load the scene image
-        this.load.image('lander-moonsurface', '/scenes/lander-moonsurface.png')
+        this.load.image('lander-moonsurface', './scenes/lander-moonsurface.png')
         
         // Load audio for this scene
-        this.load.audio('requiem', '/audio/02.mp3')
+        this.load.audio('requiem', './audio/02.mp3')
     }
 
     create(data) {
