@@ -42,7 +42,7 @@ export default class Scene003 extends BaseScene {
 
         // Display text with typewriter effect
         this.time.delayedCall(1000, () => {
-            this.textDisplay.showPreset('coming to your home computer in march 1999.', 'caption')
+            this.textDisplay.showPreset('coming to your home computer in march of 1983.', 'caption')
         })
 
         // Setup click-to-advance (uses BaseScene method)

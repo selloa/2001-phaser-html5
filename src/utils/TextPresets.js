@@ -1,26 +1,29 @@
 // Text styling presets for consistent text display across the game
 export const TextPresets = {
-    // Character speech/dialogue
+    // Character speech/dialogue - uses Courier New for retro console feel
     speech: {
         position: 'bottom',
         fontSize: '36px',
+        fontFamily: 'Courier New, monospace',
         typewriter: true,
         typewriterSpeed: 115,
         splitCharacterName: true // Enable character name split
     },
     
-    // Captions/subtitles
+    // Captions/subtitles - uses Futura Now Inline for modern sci-fi feel
     caption: {
         position: 'bottom',
         fontSize: '36px',
+        fontFamily: 'Futura Now Inline, Courier New, monospace',
         typewriter: true,
         typewriterSpeed: 80
     },
     
-    // Title text
+    // Title text - uses Futura Now Inline for modern sci-fi feel
     title: {
         position: 'custom',
         fontSize: '60px',
+        fontFamily: 'Futura Now Inline, Courier New, monospace',
         typewriter: true,
         typewriterSpeed: 100
     }

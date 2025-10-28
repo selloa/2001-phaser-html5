@@ -19,7 +19,7 @@ export class TextDisplay {
             x: options.x || null,
             y: options.y || null,
             fontSize: options.fontSize || '20px',
-            fontFamily: options.fontFamily || 'Courier New, monospace',
+            fontFamily: options.fontFamily || 'Futura Now Inline, Courier New, monospace',
             color: options.color || '#ffffff',
             fadeIn: options.fadeIn !== false,
             duration: options.duration || 1000,

@@ -50,7 +50,7 @@ export default class Scene005 extends BaseScene {
 
         // Display text with typewriter effect
         this.time.delayedCall(1000, () => {
-            this.textDisplay.showPreset('"I\'m sorry, Dave. I\'m afraid I can\'t do that."', 'caption')
+            this.textDisplay.showPreset('"I\'m sorry, Dave. I\'m afraid I can\'t do that."', 'speech')
         })
 
         // Setup click-to-advance (uses BaseScene method)
